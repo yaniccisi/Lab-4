@@ -4,9 +4,10 @@ const auth = require('../middleware/auth');
 const ctrl = require('../controllers/authController'); 
 
 
-router.post('/auth/signup', ctrl.signup);
-router.post('/auth/login', ctrl.login);
-router.post('/auth/logout', auth(true), ctrl.logout);
+// ✅ CORRECT - creates /api/auth/signup, /api/auth/login
+router.post('/signup', ctrl.signup);
+router.post('/login', ctrl.login);
+router.post('/logout', auth(true), ctrl.logout);
 router.get('/profile', auth(true), ctrl.profile);
 
 module.exports = router;
